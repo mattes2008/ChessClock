@@ -1,0 +1,306 @@
+<html>
+
+<head>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/openJSLibary.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Chess Clock</title>
+    <link rel="icon" href="storage/Toolbox-Icon.png" type="image/png">
+
+</head>
+
+
+<body>
+
+<header>
+    <h1>&nbsp;&nbsp;&#9818;&nbsp;&nbsp; Chess Clock</h1>
+</header>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div id="main">
+
+    <table style="margin-left: 19%;">
+
+        <tr>
+
+            <td onclick="setTime(0, 1, 0)">
+
+                <b>1 + 0</b>
+
+                <br/>
+                <br/>
+
+                Bullet
+
+            </td>
+
+            <td onclick="setTime(0, 1, 1)">
+
+                <b>1 + 1</b>
+
+                <br/>
+                <br/>
+
+                Bullet
+
+            </td>
+            <td onclick="setTime(0, 2, 0)">
+
+                <b>2 + 0</b>
+
+                <br/>
+                <br/>
+
+                Bullet
+
+            </td>
+            <td onclick="setTime(0, 2, 1)">
+
+                <b>2 + 1</b>
+
+                <br/>
+                <br/>
+
+                Bullet
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td onclick="setTime(0, 3, 0)">
+
+                <b>3 + 0</b>
+
+                <br/>
+                <br/>
+
+                Blitz
+
+            </td>
+
+            <td onclick="setTime(0, 3, 2)">
+
+                <b>3 + 2</b>
+
+                <br/>
+                <br/>
+
+                Blitz
+
+            </td>
+            <td onclick="setTime(0, 5, 0)">
+
+                <b>5 + 0</b>
+
+                <br/>
+                <br/>
+
+                Blitz
+
+            </td>
+            <td onclick="setTime(0, 5, 3)">
+
+                <b>5 + 3</b>
+
+                <br/>
+                <br/>
+
+                Blitz
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td onclick="setTime(0, 10, 0)">
+
+                <b>10 + 0</b>
+
+                <br/>
+                <br/>
+
+                Rapid
+
+            </td>
+
+            <td onclick="setTime(0, 10, 5)">
+
+                <b>10 + 5</b>
+
+                <br/>
+                <br/>
+
+                Rapid
+
+            </td>
+            <td onclick="setTime(0, 15, 0)">
+
+                <b>15 + 0</b>
+
+                <br/>
+                <br/>
+
+                Rapid
+
+            </td>
+            <td onclick="setTime(0, 15, 10)">
+
+                <b>15 + 10</b>
+
+                <br/>
+                <br/>
+
+                Rapid
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td onclick="setTime(0, 30, 0)">
+
+                <b>30 + 0</b>
+
+                <br/>
+                <br/>
+
+                Classical
+
+            </td>
+
+            <td onclick="setTime(0, 30, 20)">
+
+                <b>30 + 20</b>
+
+                <br/>
+                <br/>
+
+                Classical
+
+            </td>
+            <td onclick="setTime(0, 60, 0)">
+
+                <b>60 + 0</b>
+
+                <br/>
+                <br/>
+
+                Classical
+
+            </td>
+            <td onclick="setTime(0, 60, 30)">
+
+                <b>60 + 30</b>
+
+                <br/>
+                <br/>
+
+                Classical
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <input id="nameInput1" placeholder="Player 1">
+    <br/>
+    <br/>
+    <input id="nameInput2" placeholder="Player 2">
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="heading" onclick="document.getElementById('individually').classList.toggle('hidden')">
+        <h2>Individually</h2>
+    </div>
+
+    <br/>
+
+    <div id="individually" class="hidden">
+
+        <input id="setM" placeholder="Minutes" min="0" max="59" type="number">
+
+        <br/>
+        <br/>
+
+        <input id="setS" placeholder="Seconds" min="0" max="59" type="number">
+
+        <br/>
+        <br/>
+
+        <input id="setPlus" placeholder="Additional" min="0" type="number">
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <button id="selectTime" onclick="setTime(document.getElementById('setS').value, document.getElementById('setM').value, document.getElementById('setPlus').value)" style="background-color: blue; color: white;">Select</button>
+
+    </div>
+
+<br/>
+<br/>
+<br/>
+
+<hr/>
+<p>Made by:</p>
+<a href="https://www.github.com/mattes2008" target="blank">mattes2008</a>
+<a href="https://www.github.com/mattes2008/ChessClock" target="blank">ChessClock</a>
+<br/>
+<br/>
+<hr/>
+<br/>
+<br/>
+
+</div>
+
+<div id="clocks" class="hidden">
+
+    <div class="uhr" onclick="changePlayer()">
+
+        <p style="margin-top: 150px;" id="sp1">0:00</p>
+        <div id="sp1Name" class="name" style="color: white;">&#9818;</div>
+
+    </div>
+
+    <div class="uhr" onclick="changePlayer()">
+
+        <p style="margin-top: 150px;" id="sp2">0:00</p>
+        <div id="sp2Name" class="name" style="color: black;">&#9818;</div>
+
+    </div>
+
+    <div class="schaltflaeche" onclick="stopp('sp1')" id="sp1Stopp" style="background-color: white; color: black; margin-left: 3em;">&#9872;</div>
+    <div class="schaltflaeche" onclick="change()" id="change" style="background-color: blue; font-size: 75px; margin-left: 3em;">&harr;</div>
+    <div class="schaltflaeche" id="play" onclick="startStopp()" style="font-size: 75px; margin-left: 1em;">&#9654;</div>
+    <div class="schaltflaeche" onclick="main()" id="reset" style="font-size: 96px ;background-color: red; margin-left: 1em;">&#8635;</div>
+    <div class="schaltflaeche" onclick="stopp('sp2')" id="sp2Stopp" style="background-color: black; color: white; margin-left: 3em;">&#9872;</div>
+
+
+</div>
+
+
+
+</body>
+
+
+</html>
