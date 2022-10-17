@@ -341,3 +341,35 @@ function stopp (src) {
 	data.onOff = false
 
 }
+
+
+
+
+function setHandicap (sp1S, sp1M, spPlus, sp2S, sp2M) {
+
+	data.sp1.timer.s = parseInt(sp1S)
+	data.sp1.timer.m = parseInt(sp1M)
+	data.sp2.timer.s = parseInt(sp2S)
+	data.sp2.timer.m = parseInt(sp2M)
+	data.plus = parseInt(spPlus)
+	data.onOff = false
+	document.getElementById("change").classList.remove("invisible")
+
+	data.sp1.name = document.getElementById("nameInput1").value
+	data.sp2.name = document.getElementById("nameInput2").value
+
+	data.activePlayer = "sp1"
+
+	reload ()
+
+	document.getElementById("clocks").classList.remove("hidden")
+	document.getElementById("main").classList.add("hidden")
+
+	display1(data.sp1.timer.s, data.sp1.timer.m)
+	display2(data.sp2.timer.s, data.sp2.timer.m)
+
+	if (data.sp1.color==="black") {
+		change()
+	}
+
+}

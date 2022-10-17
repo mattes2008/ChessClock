@@ -257,6 +257,42 @@
 
     </div>
 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="heading" onclick="document.getElementById('handicap').classList.toggle('hidden')">
+        <h2>Handicap</h2>
+    </div>
+
+    <br/>
+
+    <div id="handicap" class="hidden">
+
+        <input id="sp1M" style="margin-right: 2em;" placeholder="Minutes: Player 1" min="0" max="59" type="number">
+        <input id="sp2M" style="margin-left: 2em;" placeholder="Minutes: Player 2" min="0" max="59" type="number">
+
+        <br/>
+        <br/>
+
+        <input id="sp1S" style="margin-right: 2em;" placeholder="Seconds: Player 1" min="0" max="59" type="number">
+        <input id="sp2S" style="margin-left: 2em;" placeholder="Seconds: Player 2" min="0" max="59" type="number">
+
+        <br/>
+        <br/>
+
+        <input style="margin-right: 2em;" id="spPlus" placeholder="Additional: Player 1" min="0" type="number">
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <button onclick="setHandicap(document.getElementById('sp1S').value, document.getElementById('sp1M').value, document.getElementById('spPlus').value, document.getElementById('sp2S').value, document.getElementById('sp2M').value)" style="background-color: blue; color: white;">Select</button>
+
+    </div>
+
 <br/>
 <br/>
 <br/>
