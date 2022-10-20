@@ -1,4 +1,4 @@
-<img src="https://github.com/mattes2008/ChessClock/blob/master/storage/socialPreview.png" align="center" width="1280" height="400">
+<img src="https://github.com/mattes2008/ChessClock/blob/master/storage/socialPreview.png" align="center" width="1280" height="500">
 
 # ChessClock
 
