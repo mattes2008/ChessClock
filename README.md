@@ -1,3 +1,5 @@
+<img src="https://github.com/mattes2008/ChessClock/blob/master/storage/socialPreview.png" align="center" width="1280" height="600">
+
 # ChessClock
 
 This ChessClock is usable for every time you want.
