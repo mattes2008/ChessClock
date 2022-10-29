@@ -124,3 +124,34 @@ td {
 	font-size: 36px;
 
 }
+
+
+#console {
+
+	width: 1665px;
+	height: 1000px;
+	bottom: 0;
+  	left: 0;
+	position: fixed;
+	height: 1000px;
+	background-color: #222222;
+	opacity: 90%;
+
+}
+
+
+.logLine {
+
+	background-color: #222222;
+	color: white;
+	text-align: left;
+	position: fixed;
+	bottom: 10em;
+	left: 2%;
+	width: 96%;
+	height: 30px;
+	font-size: 16px;
+	font-family: "Arial";
+	font-weight: bold;
+
+}

@@ -33,8 +33,25 @@ let data = {
 	onOff: false,
 	timer1: "",
 	timer2: "",
+	console: [],
 
 }
+
+
+
+
+document.addEventListener ("keyup", function (src) {
+
+	if (src.key==="Escape") {
+		document.getElementById("console").classList.toggle("hidden")
+		reloadConsole()
+		document.getElementById("commandLine").select()
+
+		data.onOff = true
+		startStopp()
+	}
+
+}, false)
 
 
 
@@ -248,6 +265,11 @@ function display1 (s, m) {
 		clearInterval(data.sp1.clock)
 		clearInterval(data.sp2.clock)
 		data.onOff = false
+	} else if (m<0) {
+		document.getElementById("sp1").innerHTML = "0" + ":" + "00" + "&nbsp;&#9872;"
+		clearInterval(data.sp1.clock)
+		clearInterval(data.sp2.clock)
+		data.onOff = false
 	} else {
 		document.getElementById("sp1").innerHTML = m + ":" + s
 	}
@@ -265,6 +287,11 @@ function display2 (s, m) {
 
 	if (s<1 && m<1) {
 		document.getElementById("sp2").innerHTML = m + ":" + s + "&nbsp;&#9872;"
+		clearInterval(data.sp1.clock)
+		clearInterval(data.sp2.clock)
+		data.onOff = false
+	} else if (m<0) {
+		document.getElementById("sp2").innerHTML = "0" + ":" + "00" + "&nbsp;&#9872;"
 		clearInterval(data.sp1.clock)
 		clearInterval(data.sp2.clock)
 		data.onOff = false
@@ -371,5 +398,61 @@ function setHandicap (sp1S, sp1M, spPlus, sp2S, sp2M) {
 	if (data.sp1.color==="black") {
 		change()
 	}
+
+}
+
+
+
+
+function reloadConsole () {
+
+	for (let i=0; i<9; i++) {
+
+		if (data.console[i]!==undefined) {
+			document.getElementById("logLine" + i).innerHTML = data.console[i]
+		}
+
+	}
+
+}
+
+
+
+
+function consoleSend (src) {
+
+	let output
+
+	if (src.key==="Enter") {
+
+		let command = document.getElementById("commandLine").value
+		command = command.split(" ")
+
+		if (command[0]==="/time") {
+
+			if (command[1]==="add") {
+				output = add(command[3], command[2])
+			} else if (command[1]==="remove") {
+				output = remove(command[3], command[2])
+			} else if (command[1]==="set") {
+				output = set(command[2],command[4] , command[3])
+			} else {
+				output = "invalid parameter"
+			}
+
+		} else if (command[0]==="/giveup") {
+			output = giveup(command[1])
+		} else if (command[0]==="/quit") {
+			output = quit()
+		} else {
+			output = "unknown command"
+		}
+
+		data.console.unshift(">> " + " " + output)
+		reloadConsole()
+
+	}
+
+
 
 }
